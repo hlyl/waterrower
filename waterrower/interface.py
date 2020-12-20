@@ -111,7 +111,7 @@ def ask_for_port():
     ports = serial.tools.list_ports.comports()
     for (i, (path, name, _)) in enumerate(ports):
         print("%s. %s - %s" % (i, path, name))
-        if "WR" in name:
+        if "USB" or "WR" in name:
             print("auto-chosen: %s" % path)
             return path
     result = raw_input()
@@ -120,7 +120,8 @@ def ask_for_port():
 def find_port():
     ports = serial.tools.list_ports.comports()
     for (i, (path, name, _)) in enumerate(ports):
-        if "WR" in name:
+        print("%s. %s - %s" % (i, path, name))
+        if "USB" or "WR" in name:
             print("port found: %s" % path)
             return path
 

@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
 import threading
 import random
-import Queue
 import logging
 import time
+
+try:
+   import queue
+except ImportError:
+   import Queue as queue
 
 from interface import PING_RESPONSE, RESET_REQUEST, OK_RESPONSE, MODEL_INFORMATION_REQUEST, \
     MODEL_INFORMATION_RESPONSE, WORKOUT_SET_DURATION_REQUEST, WORKOUT_SET_DISTANCE_REQUEST
