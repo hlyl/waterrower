@@ -23,12 +23,12 @@ class FakeS4(object):
     actual S4 rowing interface.
     """
     def __init__(self):
-        self.__queue = Queue.Queue()
-        self.__thread = None
-        self.__workout_event = None
-        self.__stop_event = None
-        self.__workout_type = None
-        self.__workout_target = None
+        self._queue = Queue.Queue()
+        self._thread = None
+        self._workout_event = None
+        self._stop_event = None
+        self._workout_type = None
+        self._workout_target = None
 
     def __publish(self, s):
         self.__queue.put(s.upper() + '\r\n')

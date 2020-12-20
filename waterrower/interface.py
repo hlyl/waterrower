@@ -124,7 +124,6 @@ def find_port():
         if "USB" or "WR" in name:
             print("port found: %s" % path)
             return path
-
     print("port not found retrying in 5s")
     time.sleep(5)
     return find_port()

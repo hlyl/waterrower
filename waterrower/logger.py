@@ -61,7 +61,7 @@ class DataLogger(object):
             # TODO add max?
 
             with io.open('json/event_%s.json' % self._activity['start_time'], 'w', encoding='utf-8') as f:
-                f.write(unicode(json.dumps(self._events, ensure_ascii=False)))
+               f.write(str(json.dumps(self._events, ensure_ascii=False), 'utf-8'))
             activities = None
             try:
                 with open('json/workouts.json') as data_file:
@@ -72,8 +72,7 @@ class DataLogger(object):
                 activities = []
             activities.append(self._activity)
             with io.open('json/workouts.json', 'w', encoding='utf-8') as f:
-                f.write(unicode(json.dumps(activities, ensure_ascii=False)))
-
+               f.write(str(json.dumps(self._events, ensure_ascii=False), 'utf-8'))
             save_to_google_fit(self._activity)
 
             self._activity = None
